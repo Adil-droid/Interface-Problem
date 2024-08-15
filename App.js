@@ -111,11 +111,13 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginTop:50,
   },
   profilePic: {
     width: 40,
     height: 40,
     borderRadius: 20,
+    marginTop:50,
   },
   searchContainer: {
     flexDirection: 'row',
