@@ -40,6 +40,7 @@ const projects = [
     tags: ["UI Design", "App Design"],
   },
 ];
+const tags = ['UI Design','Landing Page','Banner Design'];
 
 export default function App() {
   return (
@@ -65,15 +66,17 @@ export default function App() {
       </View>
 
       {/* Recent Searches */}
-      <View style={styles.recentSearches}>
-        <ScrollView horizontal>
-          {['UI Design', 'Landing Page', 'Banner Design'].map((tag) => (
-            <TouchableOpacity key={tag} style={styles.searchTag}>
-              <Text>{tag}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </View>
+       <FlatList
+          data={tags}
+          renderItem={({item}) => (
+            <TouchableOpacity style={styles.recentSearches}>
+              <Text>{item}</Text>
+            </TouchableOpacity> )}
+
+          keyExtractor={(item) => item}
+          horizontal
+          />
+     
 
       {/* Project List */}
       <FlatList
@@ -136,8 +139,13 @@ const styles = StyleSheet.create({
     padding: 7,
   },
   recentSearches: {
-    flexDirection: 'row',
-    marginBottom: 16,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    marginRight: 10,
+    borderRadius: 15,
+    backgroundColor: '#e0e0e0',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   searchTag: {
     marginRight: 8,
